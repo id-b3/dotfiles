@@ -115,4 +115,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias config='/usr/bin/git --git-dir=/home/dudzie/.cfg/ --work-tree=/home/dudzie'
+
+# Additional configs
+[ -n "$PS1" ] && source ~/.bash_profile;
+
+
+
+
