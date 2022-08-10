@@ -24,16 +24,17 @@ nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
 " PLUGINS
 call plug#begin('$HOME/.config/nvim/plugged')
 
-Plug 'nvim-lua/completion-nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'scrooloose/nerdcommenter' "Commenting tool
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}      "Better navigation
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better navigation
-Plug 'sheerun/vim-polyglot'     "Better syntax highlighting
+Plug 'neovim/nvim-lspconfig' "LSP Configuration
+Plug 'numToStr/Comment.nvim' "Commenting tool
 Plug 'jiangmiao/auto-pairs'     "Auto-close brackets and scopes
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
-Plug 'tpope/vim-fugitive'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Better navigation
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}  "Autocomplete tools
+Plug 'tpope/vim-fugitive' "Git integration
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Better syntax and scope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'} "Fuzzy Finder
+Plug 'github/copilot.vim'
 
 call plug#end()
 
