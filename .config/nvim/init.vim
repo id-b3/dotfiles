@@ -35,6 +35,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Better syntax and s
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'} "Fuzzy Finder
 Plug 'github/copilot.vim'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 call plug#end()
 
@@ -44,3 +45,8 @@ lua require('lua_config')
 nnoremap <leader>v <cmd>CHADopen<cr>
 
 let g:coq_settings = { 'auto_start': 'shut-up' }
+
+
+" Setting up folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
