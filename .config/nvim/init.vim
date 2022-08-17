@@ -25,28 +25,33 @@ nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
 call plug#begin('$HOME/.config/nvim/plugged')
 
 Plug 'neovim/nvim-lspconfig' "LSP Configuration
-Plug 'numToStr/Comment.nvim' "Commenting tool
-Plug 'jiangmiao/auto-pairs'     "Auto-close brackets and scopes
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Better navigation
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}  "Autocomplete tools
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} "Snippets for use with autocomplete
 Plug 'tpope/vim-fugitive' "Git integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Better syntax and scope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'} "Fuzzy Finder
-Plug 'github/copilot.vim'
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'mfussengger/nvim-dap' "Debugging tool
+Plug 'rcarriga/nvim-dap-ui' "Debugging UI
+
+" Appearance plugins
+Plug 'ellisonleao/gruvbox.nvim' "Gruvbox coding theme
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' "LSP Warnings and errors in virtual lines
+Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
 
 call plug#end()
 
-" Setting up LSP
+" Setting up LUAs
 lua require('lua_config')
 
 nnoremap <leader>v <cmd>CHADopen<cr>
 
 let g:coq_settings = { 'auto_start': 'shut-up' }
 
-
 " Setting up folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+set background=dark
