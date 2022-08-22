@@ -21,6 +21,13 @@ set hlsearch incsearch				"highlight all previous searches with incsearch
 
 nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
 
+nnoremap <S-Up> :m-2<CR>==
+nnoremap <S-Down> :m+<CR>==
+inoremap <S-Up> <Esc>:m-2<CR>==gi
+inoremap <S-Down> <Esc>:m+<CR>==gi
+vnoremap <S-Up> :'<,'>m-2<CR>==gv
+vnoremap <S-Down> :'<,'>m'>+<CR>==gv
+
 " PLUGINS
 call plug#begin('$HOME/.config/nvim/plugged')
 
@@ -38,6 +45,7 @@ Plug 'rcarriga/nvim-dap-ui' "Debugging UI
 
 " Appearance plugins
 Plug 'ellisonleao/gruvbox.nvim' "Gruvbox coding theme
+Plug 'EdenEast/nightfox.nvim' "Nightfox coding theme
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' "LSP Warnings and errors in virtual lines
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
 
@@ -47,11 +55,12 @@ call plug#end()
 lua require('lua_config')
 
 nnoremap <leader>v <cmd>CHADopen<cr>
-
-let g:coq_settings = { 'auto_start': 'shut-up' }
+" nnoremap <leader>c <cmd>COQnow<cr>
 
 " Setting up folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+autocmd BufReadPost,FileReadPost * normal zR
 
 set background=dark
+colorscheme terafox
