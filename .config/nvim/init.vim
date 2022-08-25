@@ -36,16 +36,8 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Be
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}  "Autocomplete tools
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} "Snippets for use with autocomplete
-Plug 'tpope/vim-fugitive' "Git integration
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Better syntax and scope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'} "Fuzzy Finder
-Plug 'mfussengger/nvim-dap' "Debugging tool
-Plug 'rcarriga/nvim-dap-ui' "Debugging UI
 
 " Appearance plugins
-Plug 'ellisonleao/gruvbox.nvim' "Gruvbox coding theme
-Plug 'EdenEast/nightfox.nvim' "Nightfox coding theme
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' "LSP Warnings and errors in virtual lines
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
 
@@ -55,12 +47,9 @@ call plug#end()
 lua require('lua_config')
 
 nnoremap <leader>v <cmd>CHADopen<cr>
-" nnoremap <leader>c <cmd>COQnow<cr>
+nnoremap <leader>c <cmd>COQnow<cr>
 
 " Setting up folding
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-autocmd BufReadPost,FileReadPost * normal zR
-
-set background=dark
-colorscheme terafox
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
+" autocmd BufReadPost,FileReadPost * normal zR
