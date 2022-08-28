@@ -10,3 +10,20 @@ require('indent_blankline').setup({
     show_end_of_line = true,
 })
 
+-- Treesitter
+require('nvim-treesitter.configs').setup({
+    highlight = {
+        enable = true,
+        disable = {}
+    },
+    indent = {
+        enable = true,
+        disable = {}
+    },
+    ensure_installed = {
+        "python",
+        "bash",
+        "lua",
+        "vim"
+    }
+})
