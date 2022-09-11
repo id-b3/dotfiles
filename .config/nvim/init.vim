@@ -36,6 +36,8 @@ lua require('lua_config')
 nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>c <cmd>COQnow<cr>
 
+source $HOME/.config/nvim/keymaps.lua
+
 " Setting up folding
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()

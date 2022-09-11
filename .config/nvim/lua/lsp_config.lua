@@ -4,7 +4,7 @@ local coq = require('coq')
 
 -- Custom function to map lsp keybindings more easily
 local map = function(type, key, value)
-    vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
+    vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
 
 -- Set keybindings when LSP loads
@@ -17,8 +17,6 @@ local custom_attach = function()
     map('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
     map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
     map('n', '<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
-    map('n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
     map('n', '<leader>ee', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>')
 end
 

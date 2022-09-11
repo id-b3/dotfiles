@@ -3,6 +3,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
 " Coding Parsing and LSP Plugins
 Plug 'neovim/nvim-lspconfig' "LSP Configuration
+Plug 'sbdchd/neoformat' "Code Formatter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}  "Autocomplete tools
