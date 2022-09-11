@@ -20,7 +20,7 @@ set hlsearch incsearch				"highlight all previous searches with incsearch
 " Custom Remappings
 
 nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
-nnoremap <S-Up> :m-2<CR>==      "Move lines up or down using shift
+nnoremap <S-Up> :m-2<CR>==
 nnoremap <S-Down> :m+<CR>==
 inoremap <S-Up> <Esc>:m-2<CR>==gi
 inoremap <S-Down> <Esc>:m+<CR>==gi
