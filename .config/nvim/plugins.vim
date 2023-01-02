@@ -11,6 +11,8 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} "Snippets for use with auto
 
 " Directories, searching and files
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Better navigation
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } "Fuzzy Finder
 
 " Appearance plugins
 Plug 'sainnhe/gruvbox-material' 

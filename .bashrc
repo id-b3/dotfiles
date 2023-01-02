@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # Additional configs
-[ -n "$PS1" ] && source ~/.bash_profile;
+[ -n "$PS1" ] && source ~/.bash_prompt;
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
