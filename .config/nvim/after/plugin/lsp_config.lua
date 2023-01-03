@@ -2,6 +2,9 @@ vim.g.coq_settings = { auto_start = true }
 local lsp = require('lspconfig')
 local coq = require('coq')
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 -- Custom function to map lsp keybindings more easily
 local map = function(type, key, value)
     vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});

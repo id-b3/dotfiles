@@ -1,8 +1,15 @@
 " PLUGINS
 call plug#begin('$HOME/.config/nvim/plugged')
 
+" General VIM Improvements
+Plug 'mbbill/undotree' "Control over the NVIM undo tree
+Plug 'tpope/vim-fugitive' "Best Git plugin
+
 " Coding Parsing and LSP Plugins
 Plug 'neovim/nvim-lspconfig' "LSP Configuration
+Plug 'williamboman/mason.nvim' 
+Plug 'williamboman/mason-lspconfig.nvim'
+
 Plug 'sbdchd/neoformat' "Code Formatter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
