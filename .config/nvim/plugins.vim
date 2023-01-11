@@ -20,6 +20,7 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} "Snippets for use with auto
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Better navigation
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } "Fuzzy Finder
+Plug 'ggandor/leap.nvim'     "Navigation
 
 " Appearance plugins
 Plug 'sainnhe/gruvbox-material' 

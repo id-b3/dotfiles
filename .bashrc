@@ -138,3 +138,5 @@ unset __conda_setup
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias vim=nvim
 alias vi=nvim
+export VISUAL=nvim
+export EDITOR="$VISUAL"

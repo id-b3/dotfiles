@@ -1,9 +1,8 @@
-vim.g.coq_settings = { auto_start = true }
 local lsp = require('lspconfig')
-local coq = require('coq')
-
 require("mason").setup()
 require("mason-lspconfig").setup()
+local coq = require('coq')
+vim.cmd('COQnow')
 
 -- Custom function to map lsp keybindings more easily
 local map = function(type, key, value)
