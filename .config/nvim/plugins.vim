@@ -15,6 +15,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}      "Better autocomplete
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}  "Autocomplete tools
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'} "Snippets for use with autocomplete
+Plug 'numToStr/Comment.nvim' "Easy line/block commenting
 
 " Directories, searching and files
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} "Better navigation
