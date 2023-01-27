@@ -6,4 +6,5 @@ reboot_to_windows ()
     sudo grub-reboot "$windows_title" && sudo reboot
 }
 alias reboot-to-windows='reboot_to_windows'
-
+alias projects="ls -A1 ~/Projects"
+alias dsatcl="docker run --rm -it -v ~/Projects/dsatcl:/data datasciencetoolbox/dsatcl2e"
