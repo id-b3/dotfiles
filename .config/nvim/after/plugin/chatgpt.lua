@@ -1,1 +1,6 @@
-require('chatgpt').setup()
+require('chatgpt').setup({
+    keymaps = {
+        submit = "<C-s>"
+        }
+    }
+)

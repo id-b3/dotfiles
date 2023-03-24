@@ -6,6 +6,11 @@ local expr_opts = { noremap = true, expr = true, silent = true }
 keymap('n', '<leader>=', ':Neoformat<CR>', default_opts)
 keymap('n', '<C-l>', ':nohl<CR><C-l>:echo "Search Cleared"<CR>', default_opts)
 
+-- chatGPT shortcuts
+keymap('n', '<leader>cg', ':ChatGPT<CR>', default_opts)
+keymap('n', '<leader>ca', ':ChatGPTActAs<CR>', default_opts)
+keymap('n', '<leader>ce', ':ChatGPTEditWithInstructions<CR>', default_opts)
+
 -- Copy/Pasting
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
