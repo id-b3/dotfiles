@@ -28,4 +28,8 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' "LSP Warnings and errors in virtual lines
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
 
+" Generative AI
+Plug 'MunifTanjim/nui.nvim'
+Plug 'jackMort/ChatGPT.nvim'
+
 call plug#end()
