@@ -31,5 +31,6 @@ Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
 " Generative AI
 Plug 'MunifTanjim/nui.nvim'
 Plug 'dpayne/CodeGPT.nvim'
+Plug 'jackMort/ChatGPT.nvim'
 
 call plug#end()

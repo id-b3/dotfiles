@@ -7,8 +7,9 @@ keymap('n', '<leader>=', ':Neoformat<CR>', default_opts)
 keymap('n', '<C-l>', ':nohl<CR><C-l>:echo "Search Cleared"<CR>', default_opts)
 
 -- chatGPT shortcuts
-keymap('n', '<leader>cc', ':Chat<CR>', default_opts)
-keymap('n', '<leader>ci', ':Chat ', default_opts)
+keymap('n', '<leader>cc', ':ChatGPT<CR>', default_opts)
+keymap('n', '<leader>ca', ':ChatGPTActAs<CR>', default_opts)
+keymap('n', '<leader>ce', ':ChatGPTEditWithInstructions<CR>', default_opts)
 
 -- Copy/Pasting
 -- greatest remap ever
