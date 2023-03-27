@@ -27,6 +27,8 @@ Plug 'ggandor/leap.nvim'     "Navigation
 Plug 'sainnhe/gruvbox-material' 
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' "LSP Warnings and errors in virtual lines
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents are now visible
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Generative AI
 Plug 'MunifTanjim/nui.nvim'
