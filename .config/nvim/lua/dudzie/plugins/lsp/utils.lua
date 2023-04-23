@@ -12,7 +12,6 @@ M.mason_packages = {
 
 M.lsp_servers = {
     "pyright",
-    "python-lsp-server",
     "lua_ls",
     "bashls",
 }
