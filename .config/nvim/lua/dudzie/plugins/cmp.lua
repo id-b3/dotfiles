@@ -42,7 +42,7 @@ local M = {
                 ["<CR>"] = cmp.mapping.confirm({
                     select = false,
                 }),
-                ["<Tab>"] = cmp.mapping(function(fallback)
+                ["<C-s>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
                     elseif luasnip.expand_or_locally_jumpable() then
@@ -53,7 +53,7 @@ local M = {
                         fallback()
                     end
                 end, { "i", "s" }),
-                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                ["<C-t>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
                     elseif luasnip.jumpable( -1) then
@@ -64,10 +64,11 @@ local M = {
                 end, { "i", "s" }),
             }),
             sources = {
-                { name = "nvim_lsp" },
-                { name = "copilot" },
-                { name = "path" },
-                { name = "buffer" },
+                { name = "nvim_lsp", priority = 1000 },
+                { name = "luasnip", priority = 800 },
+                { name = "copilot", priority = 700 },
+                { name = "path", priority = 600 },
+                { name = "buffer", priority = 500 },
             },
             window = {
                 completion = cmp.config.window.bordered(),

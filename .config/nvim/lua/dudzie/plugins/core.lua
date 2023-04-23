@@ -15,7 +15,6 @@ return {
 -- Appearance plugins
 { "sainnhe/gruvbox-material" },
 { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }, --LSP Warnings and errors in virtual lines
-{ "lukas-reineke/indent-blankline.nvim" }, --Indents are now visible
 { "nvim-lualine/lualine.nvim" },
 { "kyazdani42/nvim-web-devicons" },
 
