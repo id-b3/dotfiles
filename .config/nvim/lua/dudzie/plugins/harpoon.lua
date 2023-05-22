@@ -11,4 +11,10 @@ return {
             },
         })
     end,
+    keys = {
+        {"<leader>a", function() require("harpoon.mark").add_file() end},
+        {"<C-e>", function() require("harpoon.ui").toggle_quick_menu() end},
+        {"<C-h>", function() require("harpoon.ui").nav_next() end},
+        {"<C-t>", function() require("harpoon.ui").nav_prev() end},
+    }
 }
