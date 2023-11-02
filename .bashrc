@@ -144,3 +144,4 @@ alias vim=nvim
 alias vi=nvim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export PATH=~/.npm-global/bin:$PATH
