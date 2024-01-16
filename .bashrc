@@ -140,8 +140,10 @@ unset __conda_setup
 
 # Aliases
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias vim=nvim
-alias vi=nvim
+alias nvim="~/bin/nvim/usr/bin/nvim"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=~/.npm-global/bin:$PATH
+export VERA_APP_PLUGIN_PATH="/home/ivand/Algo/verapy/data/oplugin/"
+export PATH=/usr/local/cuda/bin/:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
