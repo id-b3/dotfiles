@@ -40,6 +40,7 @@ local M = {
         local luasnip = require("luasnip")
 
         return {
+            preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -51,7 +52,7 @@ local M = {
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.close(),
                 ["<CR>"] = cmp.mapping.confirm({
-                    select = true,
+                    select = false,
                     behavior = cmp.ConfirmBehavior.Replace
                 }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
@@ -75,6 +76,7 @@ local M = {
             }),
             sources = {
                 { name = "nvim_lsp" },
+                { name = "nvim_lua" },
                 { name = "luasnip" },
                 { name = "copilot" },
                 { name = "path" },
