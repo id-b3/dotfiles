@@ -192,5 +192,10 @@ return {
     config = function ()
         require("chatgpt").setup(defaults)
     end,
+    keys = {
+        {mode = "n", "<leader>cc", ":ChatGPT<CR>", desc = "Open prompt window."},
+        {mode = "n", "<leader>ca", ":ChatGPTActAs<CR>", desc = "Open prompt window with persona."},
+        {mode = "v", "<leader>cv", ":ChatGPTEditWithInstructions<CR>", desc = "Edit selected code."},
+    }
 }
 

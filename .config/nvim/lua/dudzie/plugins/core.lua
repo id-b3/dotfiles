@@ -1,14 +1,11 @@
 return {
 
 -- General VIM Improvements
-{ "mbbill/undotree" }, --Control over the NVIM undo tree
-
 { "sbdchd/neoformat" },--Code Formatter
 { "nvim-treesitter/nvim-treesitter" },
 { "numToStr/Comment.nvim" },--Easy line/block commenting
 
 -- Directories, searching and files
-{ "ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps", enabled = false },
 { "nvim-lua/plenary.nvim"},
 { "nvim-telescope/telescope.nvim"}, --Fuzzy Finder
 

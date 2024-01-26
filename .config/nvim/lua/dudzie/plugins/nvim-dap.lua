@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-dap",
     keys = {
-        {"<leader>b", function() require("dap").toggle_breakpoint() end},
+        {mode = "n", "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Add Breakpoint"},
     }
 }
