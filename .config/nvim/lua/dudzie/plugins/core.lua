@@ -16,4 +16,7 @@ return {
 { "MunifTanjim/nui.nvim" },
 { "jackMort/ChatGPT.nvim"},
 
+-- Other things
+{ "ThePrimeagen/vim-be-good"},
+
 }
