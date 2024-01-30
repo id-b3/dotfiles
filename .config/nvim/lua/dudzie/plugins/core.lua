@@ -12,6 +12,9 @@ return {
 -- Appearance plugins
 { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }, --LSP Warnings and errors in virtual lines
 
+-- Coding
+{ "sindrets/diffview.nvim" },
+
 -- Generative AI
 { "MunifTanjim/nui.nvim" },
 { "jackMort/ChatGPT.nvim"},
