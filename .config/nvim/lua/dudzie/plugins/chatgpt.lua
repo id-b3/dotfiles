@@ -172,7 +172,7 @@ local defaults = {
       n = 1,
     },
     use_openai_functions_for_edits = false,
-    actions_paths = {},
+    --    actions_paths = {},
     show_quickfixes_cmd = "Trouble quickfix",
     predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
     highlights = {
@@ -192,5 +192,10 @@ return {
     config = function ()
         require("chatgpt").setup(defaults)
     end,
+    keys = {
+        {mode = "n", "<leader>cc", ":ChatGPT<CR>", desc = "Open prompt window."},
+        {mode = "n", "<leader>ca", ":ChatGPTActAs<CR>", desc = "Open prompt window with persona."},
+        {mode = "v", "<leader>cv", ":ChatGPTEditWithInstructions<CR>", desc = "Edit selected code."},
+    }
 }
 

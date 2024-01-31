@@ -2,7 +2,7 @@
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
-        disable = {}
+        disable = { "txt" }
     },
     indent = {
         enable = true,
@@ -12,7 +12,8 @@ require('nvim-treesitter.configs').setup({
         "python",
         "bash",
         "lua",
-        "vim"
+        "vim",
+        "vimdoc"
     }
 })
 
