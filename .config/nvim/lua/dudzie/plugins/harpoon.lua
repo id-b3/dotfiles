@@ -12,9 +12,9 @@ return {
         })
     end,
     keys = {
-        {"<leader>a", function() require("harpoon.mark").add_file() end},
-        {"<C-e>", function() require("harpoon.ui").toggle_quick_menu() end},
-        {"<C-h>", function() require("harpoon.ui").nav_next() end},
-        {"<C-t>", function() require("harpoon.ui").nav_prev() end},
+        {mode = "n", "<leader>a", function() require("harpoon.mark").add_file() end, desc = "Add file to Harpoon"},
+        {"<C-e>", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Show Harpoon Menu"},
+        {"<C-h>", function() require("harpoon.ui").nav_next() end, desc = "Yeet next"},
+        {"<C-t>", function() require("harpoon.ui").nav_prev() end, desc = "Yeet prev"},
     }
 }
