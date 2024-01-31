@@ -12,6 +12,7 @@ return {
         {mode = "n", "<F8>", function() require("dap").step_over() end, desc = "DAP Step Over"},
         {mode = "n", "<F5>", function() require("dap").step_into() end, desc = "DAP Step Into"},
         {mode = "n", "<F4>", function() require("dap").step_out() end, desc = "DAP Step Out"},
+        {mode = "n", "<F7>", function() require("dap").terminate() end, desc = "DAP Terminate" },
         {mode = "n", "<F12>", function() require("dap.ext.vscode").load_launchjs() end, desc = "Refresh launch.json"},
     },
 
