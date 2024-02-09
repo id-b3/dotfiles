@@ -6,7 +6,6 @@ M.mason_packages = {
     "black",
     "lua-language-server",
     "markdownlint",
-    "prettier",
     "pyright"
 }
 
