@@ -30,3 +30,4 @@ alias dsatcl="docker run --rm -it -v ~/Projects/dsatcl:/data datasciencetoolbox/
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias vim=nvim
 alias vi=nvim
+alias myissues='jira issue list -s"Open" -s"In Progress" -s"Reviewing" -a$(jira me)'
