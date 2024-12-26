@@ -29,7 +29,12 @@ return {
                         capabilities = lsp_utils.capabilities,
                         settings = {
                             python = {
-                                analysis = { typeCheckingMode = "off"}
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    diagnosticMode = "workspace",
+                                    useLibraryCodeForTypes = true,
+                                    typeCheckingMode = "off"
+                                }
                             }
                         }
                     })
