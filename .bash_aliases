@@ -93,3 +93,30 @@ EOF
 alias submitPrototypeTests='runPrototypeTestsSlurm'
 alias si="~/bin/info2.sh"
 alias update_repo="git pull && pip install -r requirements.txt && pip install -e ."
+runAIForgeTestsLocal() {
+    echo "Running AIForge linting and tests locally..."
+
+    # Run pylint on src/aiforge with specified options
+    # echo "Running pylint on src/aiforge..."
+    # lint_result=0
+    # pylint src/aiforge --disable=R,C,I,W --fail-on=E,F,W0401,W0611,C0410,C0411,C0412,C0413,C0414,C0415 --rcfile=pyproject.toml --reports=y --output-format=json:pylint_report_local.json,colorized || lint_result=$?
+
+    # Check code formatting with black
+    echo "Checking code formatting with black..."
+    python -m black --check src/aiforge
+
+    # Run tests with coverage
+    echo "Running tests with coverage..."
+    coverage run --source=src/aiforge -m unittest discover src/tests -v
+
+    # Generate coverage report
+    echo "Generating coverage report..."
+    echo "Total coverage and top ten files with missed coverage lines:" 
+    coverage report --precision=1 -i 2>&1 | grep -v "CoverageWarning: Couldn't parse" | grep -e "TOTAL\|Name" 
+    echo "--------------------------------------------------------------------------------------------------------------------"
+    coverage report --precision=1 --skip-empty -i 2>&1 | grep -v "CoverageWarning: Couldn't parse" | grep -v "TOTAL" | sort -nrk 3 | head -n 10
+    echo "--------------------------------------------------------------------------------------------------------------------"
+
+    echo "All tests and linting completed."
+}
+alias testAIForge='runAIForgeTestsLocal'
