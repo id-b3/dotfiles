@@ -1,4 +1,4 @@
-return { {"sainnhe/gruvbox-material", enabled = true, priority = 1000 , config = function ()
+return { {"sainnhe/gruvbox-material", lazy = false, enabled = true, priority = 1000 , config = function ()
     vim.o.background = "dark"
     vim.g.gruvbox_material_background = "hard"
     vim.g.gruvbox_material_better_performance = 1

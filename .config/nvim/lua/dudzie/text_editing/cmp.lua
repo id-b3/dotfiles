@@ -16,17 +16,6 @@ local M = {
                 }
             }
         },
-        {
-            "zbirenbaum/copilot-cmp",
-            after = {"copilot.lua"},
-            config = function()
-                require("copilot_cmp").setup({
-                    suggestion = { enabled = false },
-                    panel = { enabled = false },
-
-                })
-            end,
-        },
     },
     opts = function()
         local cmp = require("cmp")
@@ -78,9 +67,11 @@ local M = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
                 { name = "luasnip" },
-                { name = "copilot" },
                 { name = "path" },
                 { name = "buffer" },
+                per_filetype = {
+                    codecompanion = { "codecompanion" },
+                },
             },
             window = {
                 completion = cmp.config.window.bordered(),
