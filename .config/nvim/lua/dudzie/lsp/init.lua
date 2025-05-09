@@ -1,9 +1,21 @@
 return {
+    -- Mason package manager
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        opts = require("dudzie.lsp.func.utils").mason_opts,
+        config = function(_, opts)
+            require("mason").setup(opts)
+            require("dudzie.lsp.func.utils").ensure_installed()
+        end,
+    },
+
     -- Core LSP support
     {
         "neovim/nvim-lspconfig",
-        event = "BufReadPre",
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
+            "williamboman/mason.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "williamboman/mason-lspconfig.nvim",
             {
@@ -22,17 +34,6 @@ return {
         end
     },
 
-    -- Mason package manager
-    {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-        opts = require("dudzie.lsp.func.utils").mason_opts,
-        config = function(_, opts)
-            require("mason").setup(opts)
-            require("dudzie.lsp.func.utils").ensure_installed()
-        end,
-    },
-
     -- Formatting and linting via none-ls
     {
         "jay-babu/mason-null-ls.nvim",
@@ -46,3 +47,4 @@ return {
         end,
     }
 }
+
