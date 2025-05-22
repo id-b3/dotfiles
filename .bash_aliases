@@ -120,3 +120,4 @@ runAIForgeTestsLocal() {
     echo "All tests and linting completed."
 }
 alias testAIForge='runAIForgeTestsLocal'
+alias venv="source .venv/bin/activate"

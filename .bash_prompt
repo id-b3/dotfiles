@@ -26,10 +26,16 @@ BG_GREEN="\[\e[42m\]"
 BG_YELLOW="\[\e[43m\]"
 BG_MAGENTA="\[\e[45m\]"
 
-function parse_conda_env () {
-    if [ ! -z "$CONDA_DEFAULT_ENV" ]
+function parse_venv_env () {
+    if [ ! -z "$VIRTUAL_ENV" ]
     then
-        echo "$(basename "$CONDA_DEFAULT_ENV") "
+        # Use VIRTUAL_ENV_PROMPT if it exists, otherwise derive from VIRTUAL_ENV
+        if [ ! -z "$VIRTUAL_ENV_PROMPT" ]
+        then
+            echo "$VIRTUAL_ENV_PROMPT"
+        else
+            echo "($(basename "$VIRTUAL_ENV")) "
+        fi
     fi
 }
 
@@ -60,7 +66,7 @@ PS1+="${BG_YELLOW}▶ " # end FILES container / begin BRANCH container
 PS1+="${FG_WHITE}🔀${FMT_BOLD} BRANCH " # print current git branch
 PS1+="${FMT_RESET}${FG_YELLOW}\")▶\n " # end last container (either FILES or BRANCH)
 PS1+="${FG_BLUE}╰❯ " # end arrow to prompt
-PS1+="${FG_WHITE}"'$(parse_conda_env)'
+PS1+="${FG_WHITE}"'$(parse_venv_env)'
 PS1+="${FG_CYAN}\\$ " # print prompt
 PS1+="${FMT_RESET}"
 
