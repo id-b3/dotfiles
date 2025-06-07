@@ -1,1 +1,3 @@
 .tmux/
+.config/nvim/lazy-lock.json
+.lua-lock.json
