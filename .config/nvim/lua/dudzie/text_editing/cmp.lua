@@ -65,10 +65,11 @@ local M = {
             }),
             sources = {
                 { name = "nvim_lsp" },
-                { name = "nvim_lua" },
-                { name = "luasnip" },
                 { name = "path" },
                 { name = "buffer" },
+                { name = "copilot" },
+                { name = "luasnip" },
+                { name = "nvim_lua" },
                 per_filetype = {
                     codecompanion = { "codecompanion" },
                 },
