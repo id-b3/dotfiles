@@ -22,3 +22,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "120"
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.py",
+    callback = function()
+        vim.lsp.buf.code_action({
+            context = { only = { "source.fixAll.ruff" }, diagnostics = {} },
+            apply = true,
+        })
+    end,
+})

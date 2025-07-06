@@ -25,6 +25,7 @@ require("lazy").setup({
         { import = "dudzie.misc" },
         { import = "dudzie.appearance" },
         { import = "dudzie.lsp.plugins" },
+        { import = "dudzie.lsp.plugins.conform" },
         -- { import = "dudzie"},
     },
     install = { colorscheme = { "gruvbox-material" } },

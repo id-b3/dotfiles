@@ -48,23 +48,6 @@ return {
   on_attach = function(client, bufnr)
     vim.notify("Ruff LSP attached to buffer " .. bufnr)
 
-    -- Example: Enable formatting on save for Ruff
-    if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = vim.api.nvim_create_augroup("LspRuffFormatOnSave_" .. bufnr, { clear = true }),
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            bufnr = bufnr,
-            async = true,
-            filter = function(c) return c.name == "ruff" or c.name == "ruff_lsp" end
-            -- The filter ensures only ruff formats, useful if other formatters are attached.
-          })
-        end,
-        desc = "Format file with Ruff before saving",
-      })
-    end
-
     -- Example: Keymap for Ruff's "Organize Imports"
     vim.keymap.set("n", "<leader>oi", function()
         vim.lsp.buf.code_action({
