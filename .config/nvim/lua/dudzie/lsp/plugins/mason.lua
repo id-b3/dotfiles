@@ -4,7 +4,7 @@ return {
         "mason-org/mason.nvim",
         opts = {
             ensure_installed = {
-                "pyright",
+                "basedpyright",
                 "ruff",
                 "lua-language-server",
                 "clangd",
