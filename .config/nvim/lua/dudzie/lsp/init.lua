@@ -1,5 +1,5 @@
 vim.lsp.enable({
-    "basedpyright",
+    "pyright",
     "lua_ls",
     "ruff",
 })
