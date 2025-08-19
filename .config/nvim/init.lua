@@ -26,7 +26,6 @@ require("lazy").setup({
         { import = "dudzie.appearance" },
         { import = "dudzie.lsp.plugins" },
         { import = "dudzie.lsp.plugins.conform" },
-        -- { import = "dudzie"},
     },
     install = { colorscheme = { "gruvbox-material" } },
     performance = {
@@ -47,5 +46,6 @@ require("lazy").setup({
 
 -- Load core settings and keymaps
 require("dudzie.lsp.init")
+
 require("dudzie.set.keymaps")
 require("dudzie.set.set")
