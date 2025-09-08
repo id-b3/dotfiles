@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd("FileType", {
                         autoSearchPaths = true,
                         diagnosticMode = "workspace",
                         useLibraryCodeForTypes = true,
-                        typeCheckingMode = "strict",
+                        typeCheckingMode = "basic",
                         inlayHints = {
                             variableTypes = true,
                             functionReturnTypes = true,

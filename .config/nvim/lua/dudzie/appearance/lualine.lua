@@ -7,7 +7,7 @@ return {
             function()
                 local icon = ""
                 -- Check if copilot client is attached
-                local clients = vim.lsp.get_active_clients({ name = "copilot", bufnr = 0 })
+                local clients = vim.lsp.get_clients({ name = "copilot", bufnr = 0 })
                 if #clients == 0 then
                     return "" -- Don't show anything if copilot isn't active
                 end
@@ -36,17 +36,24 @@ return {
             end,
         }
 
+        local lualine_x = {
+            copilot_component, -- Add Copilot status here
+            'encoding',
+            'fileformat',
+            'filetype',
+        }
+
+        local ok, spinner = pcall(require, 'dudzie.components.codecompanion_spinner')
+        if ok then
+            table.insert(lualine_x, 1, spinner)
+        end
+
         require('lualine').setup({
             sections = {
                 lualine_a = { 'mode' },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
                 lualine_c = { 'filename' },
-                lualine_x = {
-                    copilot_component, -- Add Copilot status here
-                    'encoding',
-                    'fileformat',
-                    'filetype'
-                },
+                lualine_x = lualine_x,
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' }
             },
