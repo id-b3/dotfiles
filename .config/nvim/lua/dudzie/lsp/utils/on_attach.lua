@@ -56,5 +56,7 @@ return function(client, bufnr)
         client.server_capabilities.document_range_formatting = false
     end
 
+    client.server_capabilities.semanticTokensProvider = nil
+
     vim.notify("LSP attached: " .. client.name, vim.log.levels.INFO, { title = "LSP" })
 end

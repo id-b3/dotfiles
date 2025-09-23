@@ -116,7 +116,7 @@ vim.api.nvim_create_autocmd("FileType", {
                     disableOrganizeImports = true,
                     analysis = {
                         autoSearchPaths = true,
-                        diagnosticMode = "workspace",
+                        diagnosticMode = "openFilesOnly",
                         useLibraryCodeForTypes = true,
                         typeCheckingMode = "basic",
                         inlayHints = {
