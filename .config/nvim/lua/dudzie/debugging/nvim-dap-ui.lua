@@ -1,39 +1,11 @@
 return {
     "rcarriga/nvim-dap-ui",
     lazy = true,
-    dependencies = { "mfussenegger/nvim-dap", "folke/neodev.nvim", "nvim-neotest/nvim-nio" },
+    dependencies = { "mfussenegger/nvim-dap", "folke/neodev.nvim", "nvim-neotest/nvim-nio", "neovim/nvim-lspconfig"},
     config = function()
         local dapui = require("dapui")
 
         dapui.setup({
-            layouts = {
-                {
-                    elements = {
-                        -- "scopes",
-                        "breakpoints",
-                        "stacks",
-                        -- "watches",
-                    },
-                    size = 0.33,
-                    position = "left",
-                },
-                {
-                    elements = {
-                        "repl",
-                    },
-                    size = 0.25,
-                    position = "bottom",
-                },
-            },
-            floating = {
-                max_height = 0.9,
-                mappings = {
-                    close = { "q", "<Esc>" },
-                },
-            },
-            render = {
-                max_type_length = 120,
-            },
         })
         require("neodev").setup({
             library = { plugins = { "nvim-dap-ui" }, types = true },

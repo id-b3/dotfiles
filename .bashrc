@@ -94,3 +94,4 @@ fi
 
 # Additional configs
 [ -n "$PS1" ] && source ~/.bash_prompt;
+. "$HOME/.cargo/env"

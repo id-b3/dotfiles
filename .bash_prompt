@@ -79,3 +79,4 @@ do
 done < <(find . -maxdepth 1 -printf "%M\t%f\0")
 }
 #alias ll="lscolor"
+eval eval -- "$(/usr/local/bin/starship init bash --print-full-init)"
