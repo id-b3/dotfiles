@@ -27,6 +27,7 @@ $pixi\
 [](fg:color_bg3 bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
+$localip\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -42,6 +43,11 @@ color_orange = '#d65d0e'
 color_purple = '#b16286'
 color_red = '#cc241d'
 color_yellow = '#d79921'
+
+[localip]
+ssh_only = true
+format = '⛅(bg:color_orange fg:color_fg0)'
+disabled = false
 
 [os]
 disabled = false
