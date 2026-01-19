@@ -14,6 +14,33 @@ return {
           ["Refactor module"] = "Refactor the selected code into a separate, reusable module.",
         },
       },
+            prompt_library = {
+        ["Python Documentation"] = {
+            strategy = "inline",
+            description = "Use SphinxAPI style to add or update docstrings.",
+            opts = {
+                modes = { "v" },
+                short_name = "pydoc",
+                stop_context_insertion = true,
+                is_slash_cmd = true,
+            },
+            prompts = {
+                {
+                    role = "system",
+                    content = "You are an expert python programmer. You will be provided with a python function, and you will add or update its docstring to follow the SphinxAPI style. Ensure that the docstring is clear, concise, and accurately describes the function's purpose, parameters, and return values. If the function already has a docstring, improve it to adhere to the SphinxAPI style. Stick to the python 3.12+ version style like `int | None`. The parameters should be added with :param x: Desc and followed up with :type x: type. Also add any raises to the docs if needed. If the function is missing typing in some variables or return, add that too. Make sure you apply the correct indentation as the original code snippet.",
+                },
+                {   role = "user",
+                    content = function(context)
+                        local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
+                        return "```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+                    end,
+                    opts = {
+                        contains_code = true,
+                    },
+                },
+            },
+        }
+      },
       extensions = {
         history = {
             enabled = true,
