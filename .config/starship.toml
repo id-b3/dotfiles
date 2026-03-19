@@ -46,7 +46,8 @@ color_yellow = '#d79921'
 
 [localip]
 ssh_only = true
-format = '⛅(bg:color_orange fg:color_fg0)'
+format = '⛅(bg:color_orange fg:color_fg0) [$localipv4]($style)'
+style = 'bold blue'
 disabled = false
 
 [os]
