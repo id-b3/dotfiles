@@ -23,7 +23,8 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Instantly sync history across multiple terminal tabs/tmux panes
-PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND:+$PROMPT_COMMAND}"
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
+# PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND:+$PROMPT_COMMAND}"
 
 # ==============================================================================
 # 3. SHELL OPTIONS (Quality of Life)
