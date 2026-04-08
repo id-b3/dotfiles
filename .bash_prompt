@@ -1,45 +1,47 @@
+# ==============================================================================
+# 1. STARSHIP (Primary Prompt)
+# ==============================================================================
+# If Starship is installed, initialize it and exit this file immediately.
+# This prevents wasting CPU cycles building a fallback prompt we won't use.
+if command -v "$HOME/.local/bin/starship" >/dev/null 2>&1; then
+    eval -- "$("$HOME/.local/bin/starship" init bash)"
+    return
+elif command -v starship >/dev/null 2>&1; then
+    eval -- "$(starship init bash)"
+    return
+fi
 
-cwd=`pwd`
-current_username=`whoami`
-export $current_username
-export HISTSIZE=99999
-export HISTFILESIZE=99999
-# prompt
+# ==============================================================================
+# 2. FALLBACK PROMPT (If Starship is not installed)
+# ==============================================================================
+
+# -- Color Definitions --
 FMT_BOLD="\[\e[1m\]"
-FMT_DIM="\[\e[2m\]"
-FMT_RESET="\[\e[0m\]"
 FMT_UNBOLD="\[\e[22m\]"
-FMT_UNDIM="\[\e[22m\]"
+FMT_RESET="\[\e[0m\]"
 FG_BLACK="\[\e[30m\]"
 FG_BLUE="\[\e[34m\]"
 FG_CYAN="\[\e[36m\]"
-FG_GREEN="\[\e[32m\]"
 FG_YELLOW="\[\e[33m\]"
 FG_GREY="\[\e[37m\]"
 FG_MAGENTA="\[\e[35m\]"
-FG_RED="\[\e[31m\]"
 FG_WHITE="\[\e[97m\]"
-BG_BLACK="\[\e[40m\]"
 BG_BLUE="\[\e[44m\]"
 BG_CYAN="\[\e[46m\]"
-BG_GREEN="\[\e[42m\]"
 BG_YELLOW="\[\e[43m\]"
 BG_MAGENTA="\[\e[45m\]"
 
-function parse_venv_env () {
-    if [ ! -z "$VIRTUAL_ENV" ]
-    then
-        # Use VIRTUAL_ENV_PROMPT if it exists, otherwise derive from VIRTUAL_ENV
-        if [ ! -z "$VIRTUAL_ENV_PROMPT" ]
-        then
-            echo "$VIRTUAL_ENV_PROMPT"
+# -- Helper Functions --
+function parse_venv_env() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        if [ -n "$VIRTUAL_ENV_PROMPT" ]; then
+            echo -e "${FG_WHITE}${VIRTUAL_ENV_PROMPT} "
         else
-            echo "($(basename "$VIRTUAL_ENV")) "
+            echo -e "${FG_WHITE}($(basename "$VIRTUAL_ENV")) "
         fi
     fi
 }
 
-# Function to determine if the session is local or remote
 function get_terminal_emoji() {
     if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ]; then
         echo "⛅"
@@ -48,41 +50,32 @@ function get_terminal_emoji() {
     fi
 }
 
-# Update the PS1 prompt
+function get_git_branch() {
+    # Fast, modern way to get git branch without piping through grep/colrm
+    local branch
+    branch=$(git branch --show-current 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo -e "${FG_CYAN}${BG_YELLOW}▶ ${FG_BLACK}🔀${FMT_BOLD} ${branch} ${FMT_RESET}${FG_YELLOW}"
+    fi
+}
+
+# -- Build the PS1 String --
+# We build it piece by piece for readability. 
+
 PS1="\n ${FG_BLUE}╭─" # begin arrow to prompt
 PS1+="${FG_MAGENTA}◀" # begin USERNAME container
 PS1+="${BG_MAGENTA}${FG_CYAN}${FMT_BOLD} \$(get_terminal_emoji) " # dynamically set emoji
 PS1+="${FG_WHITE}\u" # print username
 PS1+="${FMT_UNBOLD}${FMT_BOLD} ${FG_MAGENTA}${BG_BLUE}▶ " # end USERNAME container / begin DIRECTORY container
 PS1+="${FG_GREY}\w " # print directory
-PS1+="${FG_BLUE}${BG_CYAN}▶ " # end DIRECTORY container / begin FILES container
-PS1+="${FG_BLACK}"
-PS1+="📁 \$(find . -mindepth 1 -maxdepth 1 -type d | wc -l) " # print number of folders
-PS1+="📄 \$(find . -mindepth 1 -maxdepth 1 -type f | wc -l) " # print number of files
-PS1+="🔗 \$(find . -mindepth 1 -maxdepth 1 -type l | wc -l) " # print number of symlinks
-PS1+="${FMT_RESET}${FG_CYAN}"
-PS1+="\$(git branch 2> /dev/null | grep '^*' | colrm 1 2 | xargs -I BRANCH echo -n \"" # check if git branch exists
-PS1+="${BG_YELLOW}▶ " # end FILES container / begin BRANCH container
-PS1+="${FG_WHITE}🔀${FMT_BOLD} BRANCH " # print current git branch
-PS1+="${FMT_RESET}${FG_YELLOW}\")▶\n " # end last container (either FILES or BRANCH)
-PS1+="${FG_BLUE}╰❯ " # end arrow to prompt
-PS1+="${FG_WHITE}"'$(parse_venv_env)'
-PS1+="${FG_CYAN}\\$ " # print prompt
-PS1+="${FMT_RESET}"
+PS1+="${FG_BLUE}▶${FMT_RESET} " # end DIRECTORY container
+
+# Append Git branch dynamically (only shows if in a git repo)
+PS1+="\$(get_git_branch)"
+
+# Final line
+PS1+="\n ${FG_BLUE}╰❯ " # end arrow to prompt
+PS1+="\$(parse_venv_env)" # print venv
+PS1+="${FG_CYAN}\\$ ${FMT_RESET}" # print prompt
 
 export PS1
-
-function lscolor() {
-while IFS=$'\t' read -r -d '' perms name
-do
-    echo "${perms:0:1}$(tput bold; tput setaf 1)${perms:1:3}$(tput setaf 4)${perms:4:3}$(tput setaf 2)${perms:7:3}$(tput sgr0) ${name}"
-done < <(find . -maxdepth 1 -printf "%M\t%f\0")
-}
-#alias ll="lscolor"
-
-if command -v "$HOME/.local/bin/starship" >/dev/null 2>&1; then
-    eval -- "$("$HOME/.local/bin/starship" init bash --print-full-init)"
-elif command -v starship >/dev/null 2>&1; then
-    eval -- "$(starship init bash --print-full-init)"
-fi
-
