@@ -87,14 +87,35 @@ fi
 # ==============================================================================
 
 # Rust / Cargo
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
 # FNM (Fast Node Manager)
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
+  if command -v fnm &> /dev/null; then
+    eval "$(fnm env)"
+  fi
 fi
-# Only evaluate fnm if the command actually exists on this machine
-if command -v fnm &> /dev/null; then
-  eval "$(fnm env)"
+
+# Atuin
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+fi
+
+# bash-preexec
+if [ -f "$HOME/.bash-preexec.sh" ]; then
+  . "$HOME/.bash-preexec.sh"
+fi
+
+# Atuin init
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init bash)"
+fi
+
+# Homebrew
+if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 fi
