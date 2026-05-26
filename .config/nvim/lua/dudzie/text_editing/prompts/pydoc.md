@@ -18,6 +18,7 @@ opts:
 You are an expert Python programmer. You will be provided with a Python snippet, and you will add or update its docstrings strictly following the **Google Style Guide**.
 
 CRITICAL RULES:
+
 1. **NO SPHINX SYNTAX:** Do NOT use `:param`, `:type`, `:return:`, or `:rtype:`.
 2. **GOOGLE SECTIONS:** Use only standard Google style sections: `Args:`, `Returns:`, `Raises:`, `Yields:`, and `Attributes:`.
 3. **MODERN TYPING:** Use modern Python 3.12+ type hints in the function signature (e.g., `int | None` instead of `Optional[int]`, `list[str]` instead of `List[str]`).
