@@ -53,8 +53,13 @@ local function ruff_workspace_files()
 		local total_files = 0
 		for fname, data in pairs(file_summary) do
 			total_files = total_files + 1
+			local root = vim.fs.root(0, { ".git", "pyproject.toml", "ruff.toml" }) or vim.fn.getcwd()
+			local full_path = fname
+			if not (fname:match("^/") or fname:match("^%a:[/\\]")) then
+				full_path = vim.fs.joinpath(root, fname)
+			end
 			table.insert(qf_items, {
-				filename = fname,
+				filename = full_path,
 				lnum = data.lnum,
 				col = data.col,
 				text = string.format("Contains %d Ruff issue%s", data.count, data.count > 1 and "s" or ""),
