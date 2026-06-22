@@ -4,11 +4,14 @@ return {
         "mason-org/mason.nvim",
         opts = {
             ensure_installed = {
-                "basedpyright",
                 "ruff",
                 "lua-language-server",
                 "clangd",
                 "clang-format",
+                "ty",
+                "stylua",
+                "prettier",
+                "debugpy",
             },
             ui = {
                 icons = {

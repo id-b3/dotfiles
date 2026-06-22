@@ -7,7 +7,10 @@
   "codecompanion.nvim": { "branch": "main", "commit": "7d7957c26d33a97085d3a0c82eeb0147a0f51314" },
   "conform.nvim": { "branch": "master", "commit": "c2526f1cde528a66e086ab1668e996d162c75f4f" },
   "copilot.lua": { "branch": "master", "commit": "07aa57148ac28986bab9f55e87ee3d929e2726b1" },
+  "diffview-plus.nvim": { "branch": "main", "commit": "de8bf7bc1b7382890de7b0623023e322c7a8ce7e" },
+  "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
+  "gitlab.nvim": { "branch": "develop", "commit": "2295d1e85c5e4d79c49cadda36b9848a3ffed4e2" },
   "gruvbox-material": { "branch": "master", "commit": "afb275d8e6dc379762d122bd24e1773fc057abf3" },
   "hardtime.nvim": { "branch": "main", "commit": "145b930954a3146cfb5b8a73cdcad42eb7d2740c" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
@@ -36,6 +39,7 @@
   "typr": { "branch": "main", "commit": "584e4ef34dea25a4035627794322f315b22d1253" },
   "undotree": { "branch": "master", "commit": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d" },
   "vim-fugitive": { "branch": "master", "commit": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }

@@ -51,12 +51,6 @@ return function(client, bufnr)
             function() vim.lsp.buf.code_action({ context = { only = { "source.fixAll.ruff" } }, apply = true }) end,
             "Ruff Fix All")
     end
-    if client.name == "basedpyright" then
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-    end
 
     client.server_capabilities.semanticTokensProvider = nil
-
-    vim.notify("LSP attached: " .. client.name, vim.log.levels.INFO, { title = "LSP" })
 end

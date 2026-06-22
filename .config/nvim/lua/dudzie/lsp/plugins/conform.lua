@@ -1,7 +1,6 @@
 return {
     {
         "stevearc/conform.nvim",
-        enabled = false,
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         opts = {
@@ -9,6 +8,8 @@ return {
                 lua = { "stylua" },
                 python = { "ruff_format" },
                 cpp = { "clang_format" },
+                json = { "prettier" },
+                markdown = { "prettier" },
             },
             format_on_save = {
                 timeout_ms = 500,

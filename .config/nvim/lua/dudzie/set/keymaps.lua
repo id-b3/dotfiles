@@ -5,8 +5,7 @@ local expr_opts = { noremap = true, expr = true, silent = true }
 -- Config
 keymap('n', '<leader><leader>x', '<cmd>source %<CR>', default_opts)
 
--- Formatting shortcut
-keymap('n', '<leader>=', ':Neoformat<CR>', default_opts)
+
 keymap('n', '<C-l>', ':nohl<CR><C-l>:echo "Search Cleared"<CR>', default_opts)
 
 -- Copy/Pasting

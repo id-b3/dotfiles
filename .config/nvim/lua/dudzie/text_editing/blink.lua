@@ -23,15 +23,15 @@ local M = {
 
             ['<Tab>'] = {
                 function(cmp)
-                    -- If completion menu is visible, select next item
-                    if cmp.is_visible() then
-                        return cmp.select_next()
-                        -- Otherwise, try snippet jump
-                    elseif require('luasnip').locally_jumpable(1) then
-                        require('luasnip').jump(1)
+                    local luasnip = require('luasnip')
+                    -- Prioritize snippet jump when actively inside a snippet
+                    if luasnip.in_snippet() and luasnip.locally_jumpable(1) then
+                        luasnip.jump(1)
                         return true
                     end
-                    -- If nothing worked, return false to trigger fallback
+                    if cmp.is_visible() then
+                        return cmp.select_next()
+                    end
                     return false
                 end,
                 'fallback'
@@ -39,13 +39,14 @@ local M = {
 
             ['<S-Tab>'] = {
                 function(cmp)
-                    -- If completion menu is visible, select previous item
+                    local luasnip = require('luasnip')
+                    -- Prioritize snippet jump backward when actively inside a snippet
+                    if luasnip.in_snippet() and luasnip.locally_jumpable(-1) then
+                        luasnip.jump(-1)
+                        return true
+                    end
                     if cmp.is_visible() then
                         return cmp.select_prev()
-                        -- Otherwise, try snippet jump backward
-                    elseif require('luasnip').locally_jumpable(-1) then
-                        require('luasnip').jump(-1)
-                        return true
                     end
                     return false
                 end,
@@ -64,8 +65,8 @@ local M = {
                 },
             },
             documentation = {
-                auto_show = false,
-                auto_show_delay_ms = 0,
+                auto_show = true,
+                auto_show_delay_ms = 500,
                 treesitter_highlighting = true,
                 window = {
                     border = 'rounded',

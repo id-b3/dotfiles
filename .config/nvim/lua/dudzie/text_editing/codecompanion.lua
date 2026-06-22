@@ -1,5 +1,13 @@
 return {
   "olimorris/codecompanion.nvim",
+  keys = {
+    {
+      "<leader>cp",
+      "<cmd>CodeCompanion /pydoc<CR>",
+      mode = "v",
+      desc = "CodeCompanion: Generate Python Docstrings",
+    },
+  },
   opts = {
       chat = {
         adapter = "copilot",

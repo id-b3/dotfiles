@@ -91,6 +91,11 @@ if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
+# Go
+if [ -d "$HOME/.local/go/bin" ]; then
+  export PATH="$HOME/.local/go/bin:$PATH"
+fi
+
 # FNM (Fast Node Manager)
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then

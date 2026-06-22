@@ -6,6 +6,7 @@ return {
     root_markers = { "ruff.toml", "pyproject.toml", ".git" },
     init_options = {
         settings = {
+            diagnosticMode = 'workspace',
             lint = { enable = true, preview = true },
             format = { preview = true },
         },
