@@ -1,10 +1,11 @@
 vim.bo.keywordprg = ""
 -- Create an async function to fetch Ruff workspace files
 local function ruff_workspace_files()
+	local root = vim.fs.root(0, { ".git", "pyproject.toml", "ruff.toml" }) or vim.fn.getcwd()
 	vim.notify("Scanning workspace with Ruff...", vim.log.levels.INFO, { title = "Ruff Workspace" })
 
 	-- Run the Ruff CLI asynchronously
-	vim.system({ "ruff", "check", "--output-format=json", "." }, { text = true }, function(out)
+	vim.system({ "ruff", "check", "--output-format=json", "." }, { text = true, cwd = root }, function(out)
 		if out.code ~= 0 and out.code ~= 1 then
 			vim.schedule(function()
 				vim.notify(
