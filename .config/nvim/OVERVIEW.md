@@ -382,7 +382,7 @@
 | Mode | Key | Action | Description / Notes |
 |------|-----|--------|---------------------|
 | `n` | `<leader><leader>x` | `:source %` | Reload current file; no `desc` set |
-| `n` | `<leader>=` | `:Neoformat` | **Stale**: Neoformat is not installed |
+| `n` | `<leader>=` | — | Removed (Neoformat is not installed) |
 | `n` | `<C-l>` | `:nohl<CR><C-l>:echo "Search Cleared"<CR>` | Clear search highlight, redraw, echo status; no `desc` |
 | `x` | `<leader>p` | `"_dP` | Paste over selection without yanking replaced text |
 | `n,v` | `<leader>y` | `"+y` | Yank to system clipboard |
